@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="row-content am-cf">
+    <div class="row">
+        <input type="hidden" id="sectionId" value="@ViewBag.id" />
+        <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+            <div class="widget am-cf am-slider-content">
+                <form>
+                    <div class="am-form-group">
+                        <div>
+                            <label for="doc-ta-1">章节内容</label>
+                        </div>
+                        <textarea id="chapterTxt" rows="30" style="width:100%;"></textarea>
+                    </div>
+                    <div class="am-form-group">
+
+                        <div class="am-u-sm-9 am-u-sm-push-11">
+                            <button type="button" id="formBtn" class="am-btn am-btn-primary tpl-btn-bg-color-success ">保存</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        var id = $("#sectionId").val();
+        $.ajax({
+            url: "/ChapterManager/Chapter/GetDetails",
+            dataType: "json",
+            method: "Post",
+            data: { id: id },
+            success: function (data) {
+                $("#chapterTxt").html(data.body);
+            }
+        })
+    })
+</script>

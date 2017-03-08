@@ -1,0 +1,139 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="row-content am-cf">
+    <div class="row">
+        <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+            <div class="widget am-cf">
+                <div class="widget-head am-cf">
+                    <div class="widget-title am-fl" id="ChapterTitle">斑马线</div>
+                    <div class="widget-function am-fr">
+                        <a href="javascript:;" class="am-icon-cog"></a>
+                    </div>
+                </div>
+
+                <div class="widget-body  widget-body-lg am-fr">
+
+                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
+                        <div class="am-form-group">
+                            <div class="am-btn-toolbar">
+                                <div class="am-btn-group am-btn-group-xs">
+                                    <button type="button" id="btnSave" class="am-btn am-btn-default am-btn-primary"><span class="am-icon-archive"></span> 提交</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
+                        <div class="am-form-group tpl-table-list-select">
+                            <select data-am-selected="{maxHeight: 300, searchBox: 1}" id="item"></select>
+                        </div>
+                    </div>
+
+                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
+                        <div class="am-form-group tpl-table-list-select">
+                            <select data-am-selected id="volume">
+                                <option value="1" selected>卷一</option>
+                                <option value="2">卷二</option>
+                                <option value="3">卷三</option>
+                                <option value="4">卷四</option>
+                                <option value="5">卷五</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
+                        <div class="am-form-group tpl-table-list-select">
+                            <select data-am-selected id="chapterNo">
+                                <option value="1" selected>第一章</option>
+                                <option value="2">第二章</option>
+                                <option value="3">第三章</option>
+                                <option value="4">第四章</option>
+                                <option value="5">第五章</option>
+                                <option value="6">第六章</option>
+                                <option value="7">第七章</option>
+                                <option value="8">第八章</option>
+                                <option value="9">第九章</option>
+                                <option value="10">第十章</option>
+                                <option value="11">第十一章</option>
+                                <option value="12">第十二章</option>
+                                <option value="13">第十三章</option>
+                                <option value="14">第十四章</option>
+                                <option value="15">第十五章</option>
+                                <option value="16">第十六章</option>
+                                <option value="17">第十七章</option>
+                                <option value="18">第十八章</option>
+                                <option value="19">第十九章</option>
+                                <option value="20">第二十章</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                        <div class="widget am-cf am-slider-content">
+                            <form class="am-form tpl-form-border-form tpl-form-border-br">
+                                <div class="am-form-group">
+                                    <div><label for="doc-ta-1">章节名称</label></div>
+                                    <div>
+                                        <input type="text" id="chapterName" class="tpl-form-input" name="name" placeholder="请输入名称" required>
+                                    </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <div>
+                                        <label for="doc-ta-1">章节内容</label>
+                                    </div>
+                                    <textarea id="chapterTxt" rows="30" style="width:100%;"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('body').attr('data-type', 'widgets');
+        $.getJSON("/StorysManager/Story/GetName_Values", {}, function (data) {
+            for (var key in data) {
+                $("#item").append('<option value="' + data[key].id + '"> ' + data[key].name + '</option>');
+            }
+        })
+        $("#item").change(Changefun);
+        $("#volume").change(Changefun);
+        $("#btnSave").click(function () {
+            var fatherId=($("#item").val());
+            var volumeNo = $("#volume").val();
+            var chapterNo = $("chapterNo").val();
+            var chapterName=  $("#chapterName").val();
+            var chapterTxt = $("#chapterTxt").val();
+            $.post("/ChapterManager/Chapter/Add", { fatherId: fatherId, volumeNo: volumeNo,chapterNo:chapterNo, chapterName: chapterName, chapterTxt: chapterTxt, }, function (data) {
+                if (data == true) {
+                    toatster({ head: "Success", icon: "success", text: "章节添加成功！" });
+                }
+                else {
+                    toatster({ head: "Error", icon: "error", text: "章节添加失败！" });
+                }
+            })
+
+
+
+        })
+
+
+
+    });
+
+    var Changefun = function () {
+        var id = $("#item").val();
+        var volumeNo = $("#volume").val();
+        $.getJSON("/ChapterManager/Chapter/GetChapterListJson", { id: id, volumeNo: volumeNo }, function (data) {
+            SuccessFun(data);
+        });
+    }
+
+</script>

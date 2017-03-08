@@ -35,7 +35,7 @@ namespace InkheartWebCore
         {
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
-
+            services.AddSession();
             services.AddMvc();
         }
 
@@ -58,14 +58,18 @@ namespace InkheartWebCore
             }
 
             app.UseApplicationInsightsExceptionTelemetry();
-
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseMvc(routes =>
             {
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapRoute(
+                    name: "areaRoute",
+                    template: "{area:exists}/{controller}/{action=Index}/{id?}");
             });
         }
     }

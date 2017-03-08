@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using InkheartWebCore.Filters;
 
 namespace InkheartWebCore.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : LoginCheckFilterController
     {
         public IActionResult Index()
         {

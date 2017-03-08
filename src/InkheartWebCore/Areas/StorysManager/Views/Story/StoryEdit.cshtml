@@ -1,0 +1,182 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="row-content am-cf">
+    <div class="row">
+        <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+            <div class="widget am-cf">
+                <div class="widget-head am-cf">
+                    <div class="widget-title am-fl">边框表单</div>
+                    <div class="widget-function am-fr">
+                        <a href="javascript:;" class="am-icon-cog"></a>
+                    </div>
+                </div>
+                <div class="widget-body am-fr">
+                    <form class="am-form tpl-form-border-form tpl-form-border-br">
+                        <div class="am-form-group">
+                            <label for="user-name" class="am-u-sm-3 am-form-label">小说名称 <span class="tpl-form-line-small-title">Title</span></label>
+                            <div class="am-u-sm-9">
+                                <input type="text" class="tpl-form-input" name="name" placeholder="请输入小说名称" required>
+                                <small>请填写小说名称10字左右。</small>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label for="user-name" class="am-u-sm-3 am-form-label">标题 <span class="tpl-form-line-small-title">Title</span></label>
+                            <div class="am-u-sm-9">
+                                <input type="text" class="tpl-form-input" name="title" placeholder="请输入标题文字">
+                                <small>请填写标题文字10-20字左右。</small>
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="user-name" class="am-u-sm-3 am-form-label">作者 <span class="tpl-form-line-small-title">Title</span></label>
+                            <div class="am-u-sm-9">
+                                <input type="text" class="tpl-form-input" name="author" placeholder="请输入标题文字">
+                                <small>请填写标题文字10字左右。</small>
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="user-name" class="am-u-sm-3 am-form-label">价格 <span class="tpl-form-line-small-title">Title</span></label>
+                            <div class="am-u-sm-9">
+                                <input type="text" class="tpl-form-input" name="price" placeholder="价格">
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="user-phone" class="am-u-sm-3  am-form-label">频道 <span class="tpl-form-line-small-title">Author</span></label>
+                            <div class="am-u-sm-9 ">
+                                <select name="channel" data-am-selected="{btnWidth: '40%', btnSize: 'sm', btnStyle: 'secondary'}">
+                                    <option value="男频">男频</option>
+                                    <option value="女频">女频</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="user-phone" class="am-u-sm-3  am-form-label">类别 <span class="tpl-form-line-small-title">Author</span></label>
+                            <div class="am-u-sm-9 ">
+                                <select data-am-selected="{searchBox: 1}" name="type" style="display: none;">
+                                    <option value="耽美纯爱">耽美纯爱</option>
+                                    <option value="仙侠奇幻">仙侠奇幻</option>
+                                    <option value="古代言情">古代言情</option>
+                                    <option value="现代言情">现代言情</option>
+                                    <option value="历史军事">历史军事</option>
+                                    <option value="悬疑灵异">悬疑灵异</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="user-weibo" class="am-u-sm-3 am-form-label">标签 <span class="tpl-form-line-small-title">Type</span></label>
+                            <div class="am-u-sm-9 ">
+                                <select multiple data-am-selected name="tag">
+                                    <optgroup label="男频">
+                                        <option value="复仇">复仇</option>
+                                        <option value="江湖">江湖</option>
+                                        <option value="灵异">灵异</option>
+                                        <option value="热血">热血</option>
+                                    </optgroup>
+                                    <optgroup label="女频">
+                                        <option value="女强">女强</option>
+                                        <option value="都市">都市</option>
+                                        <option value="娱乐">娱乐</option>
+                                        <option value="爱情">爱情</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="am-form-group">
+                            <label for="user-email" class="am-u-sm-3 am-form-label">发布时间 <span class="tpl-form-line-small-title">Time</span></label>
+                            <div class="am-u-sm-9">
+                                <input type="text" name="date" class="am-form-field tpl-form-no-bg" placeholder="发布时间" data-am-datepicker="" readonly>
+                                <small>发布时间为必填</small>
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="user-weibo" class="am-u-sm-3 am-form-label">封面图 <span class="tpl-form-line-small-title">Images</span></label>
+                            <div class="am-u-sm-9">
+                                <div class="am-form-group am-form-file">
+                                    <div class="tpl-form-file-img">
+                                        <img src="assets/img/a5.png" alt="">
+                                    </div>
+                                    <button type="button" class="am-btn am-btn-primary am-btn-sm">
+                                        <i class="am-icon-cloud-upload"></i> 添加封面图片
+                                    </button>
+                                    <input id="doc-form-file" name="imageCover" type="file" multiple>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="am-form-group">
+                            <label for="user-intro" class="am-u-sm-3 am-form-label">简介</label>
+                            <div class="am-u-sm-9">
+                                <textarea class="" name="introduction" rows="10" id="user-intro" placeholder="请输入文章内容"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="user-name" class="am-u-sm-3 am-form-label">字数 <span class="tpl-form-line-small-title">Title</span></label>
+                            <div class="am-u-sm-9">
+                                <input type="text" name="wordCount" class="tpl-form-input" id="Introduction" placeholder="请输入简介文字">
+                                <small>请填写简介文字100字左右。</small>
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="user-name" class="am-u-sm-3 am-form-label">链接 <span class="tpl-form-line-small-title">Title</span></label>
+                            <div class="am-u-sm-9">
+                                <input type="text" class="tpl-form-input" name="url" placeholder="链接">
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="user-intro" class="am-u-sm-3 am-form-label">VIP文章</label>
+                            <div class="am-u-sm-9">
+                                <div class="tpl-switch">
+                                    <input type="checkbox" name="isVip" class="ios-switch bigswitch tpl-switch-btn">
+                                    <div class="tpl-switch-btn-view">
+                                        <div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <div class="am-u-sm-9 am-u-sm-push-3">
+                                <button type="button" id="formBtn" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('body').attr('data-type', 'widgets');
+    $(function () {
+        $('#formBtn').click(function () {
+            $.post(
+                "/StorysManager/Story/Add",
+                $("form").serialize(),
+                SuccessFun
+                ).error(ErrorFun);
+        });
+    });
+    var SuccessFun = function (data) {
+        toatster("success");
+    }
+    var ErrorFun = function ()
+    {
+        toatster("error");
+    }
+</script>
+

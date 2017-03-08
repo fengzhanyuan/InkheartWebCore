@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "InkheartWeb.Common": "1.0.0-*",
+    "InkheartWeb.Entities": "1.0.0-*",
+    "mySqlSugarCore": "3.5.3",
+    "NETStandard.Library": "1.6.0",
+    "sqlSugarCore": "3.5.3.1"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  }
+}
